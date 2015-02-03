@@ -1,0 +1,37 @@
+A particular build toolchain might look like this:
+
+* Ruby
+* net-ssh
+* graphviz (http://www.graphviz.org/pdf/dotguide.pdf see Fig. 4)
+
+Preconditions: pre-shared ssh keys on servers
+Inputs: a list of FQDNs
+Outputs: a text file that can be rendered using dot/graphviz
+
+How it might work:
+
+for each server in servers
+    |-connect to server
+    |-run mount
+    |-pass the output back to the running script
+    |-disconnect from server
+
+    parse out the responses into a data structure paying attention to
+    * The NFS share and host
+    * the filesystem type
+    * mount flags (ro,rw)
+
+    Build the dot file based on the data structure.
+
+    Render the dot file with graphviz.
+
+
+
+PART THE TWOTH
+
+Definitely on the right track!  I attached a document in which Fig 2. shows how this visualization might fall short 
+(ie. what if a volume is used on different machines with different mount point names and mount properties - rw vs. ro)?  
+Fig 1. shows sort of how to compensate for it.  Fig 1 also does a pretty crappy job of showing how different visual 
+attributes can improve readability - different shapes for different objects (which you've already got going), 
+but what about different colors for r/w r/o arrows, etc?  
+Sorry this is brief, I'm in an airport!  There's wireless here!  We seriously live in the future.

@@ -1,0 +1,3 @@
+digraph G {
+"moody24.oit.umn.edu" -> "/nfs/mysql" -> "nfs.umn.edu:/ifs/umn/ns/nfs/oit/moodle/prod"
+}
